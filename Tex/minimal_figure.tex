@@ -1,0 +1,162 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+
+\begin{document}
+
+% -----------------------------------------------------------------------
+% Figure 2 of the paper 
+% -----------------------------------------------------------------------
+
+
+\begin{figure}
+\begin{center}
+\begin{tabular}{cc}
+\begin{tikzpicture}
+\begin{axis}[
+scale only axis=true,
+width=0.37\textwidth,
+height=0.25\textwidth,
+xlabel={$z$ \phantom{$\phi$}},
+ylabel={$\mathcal{I}_\mathcal{W}(\tilde{\mu})$},
+xmin=0, xmax=1,
+ymin = 0, ymax = 1,
+legend style={nodes={scale=0.7, transform shape}}, legend pos=south east]
+\addplot[color=black, line width = 1pt, dashed] table [x=x, y=y1]{data_additive.txt};
+\addlegendentry{$z$}
+
+\addplot[color=blue, line width = 1pt] table [x=x, y=y2]{data_additive.txt};
+\addlegendentry{$d=2$}
+
+\addplot[color=red, line width = 1pt] table [x=x, y=y3]{data_additive.txt};
+\addlegendentry{$d=3$}
+
+\addplot[color=green!50!black!50!, line width = 1pt] table [x=x, y=y4]{data_additive.txt};
+\addlegendentry{$d=4$}
+\end{axis}
+\end{tikzpicture}  
+	& 
+\begin{tikzpicture}
+\begin{axis}[
+scale only axis=true,
+width=0.35\textwidth,
+height=0.25\textwidth,
+xlabel={$\phi$},
+ylabel={$\mathcal{I}_\mathcal{W}(\tilde{\mu})$},
+xmin=0, xmax=5,
+ymin = 0, ymax = 1,
+legend style={nodes={scale=0.7, transform shape}}, legend pos=south east]
+\addplot[color=blue, line width = 1pt] table [x=x, y=y1]{data_compound.txt};
+\addlegendentry{$d=2$}
+
+\addplot[color=red, line width = 1pt] table [x=x, y=y2]{data_compound.txt};
+\addlegendentry{$d=3$}
+
+\addplot[color=green!50!black!50!, line width = 1pt] table [x=x, y=y3]{data_compound.txt};
+\addlegendentry{$d=4$}
+\end{axis}
+\end{tikzpicture}  	
+\end{tabular}
+\end{center}
+\end{figure}
+
+% -----------------------------------------------------------------------
+% Figure 3 of the paper 
+% -----------------------------------------------------------------------
+
+\begin{figure}
+\begin{center}
+\begin{tabular}{cc}
+\begin{tikzpicture}
+\begin{axis}[
+scale only axis=true,
+width=0.36\textwidth,
+height=0.25\textwidth,
+xlabel={$m$},
+ylabel={$\mathcal{I}_\mathcal{W}(\tilde{\mu})$},
+xmin=1.8, xmax=10.2,
+ymin = 0, ymax = 1,
+legend style={nodes={scale=0.7, transform shape}}, legend pos=north east]
+\addplot[mark = *, color=blue, line width = 1pt] table [x=x, y=index1]{mix_nfix.txt};
+\addlegendentry{$n=1$\phantom{0}}
+
+\addplot[mark = *,color=red, line width = 1pt] table [x=x, y=index2]{mix_nfix.txt};
+\addlegendentry{$n=2$\phantom{0}}
+
+\addplot[mark = *, color=green!50!black!50!, line width = 1pt] table [x=x, y=index3]{mix_nfix.txt};
+\addlegendentry{$n=5$\phantom{0}}
+
+\addplot[mark = *, color=orange, line width = 1pt] table [x=x, y=index4]{mix_nfix.txt};
+\addlegendentry{$n=10$}
+
+\end{axis}
+\end{tikzpicture}  
+	& 
+\begin{tikzpicture}
+\begin{axis}[
+scale only axis=true,
+%set `width' and `height' to the desired values
+width=0.36\textwidth,
+height=0.25\textwidth,
+xlabel={$n$},
+ylabel={$\mathcal{I}_\mathcal{W}(\tilde{\mu})$},
+xmin=1.8, xmax=10.2,
+ymin = 0, ymax = 1.1,
+legend style={nodes={scale=0.7, transform shape}}, legend pos=north west]
+\addplot[mark = *, color=blue, line width = 1pt] table [x=x, y=index1]{mix_mfix.txt};
+\addlegendentry{$m=1$\phantom{0} }
+
+\addplot[mark = *, color=red, line width = 1pt] table [x=x, y=index2]{mix_mfix.txt};
+\addlegendentry{$m=2$\phantom{0} }
+
+\addplot[mark = *, color=green!50!black!50!, line width = 1pt] table [x=x, y=index3]{mix_mfix.txt};
+\addlegendentry{$m=5$\phantom{0} }
+
+\addplot[mark = *, color=orange, line width = 1pt] table [x=x, y=index4]{mix_mfix.txt};
+\addlegendentry{$m=10$}
+\addplot[color=red, line width = 0.7pt, dashed] table [x=x, y=limit2]{mix_mfix.txt};
+\addplot[color=green!50!black!50!, line width = 0.7pt, dashed] table [x=x, y=limit3]{mix_mfix.txt};
+\addplot[color=orange, line width = 0.7pt, dashed] table [x=x, y=limit4]{mix_mfix.txt};
+\end{axis}
+\end{tikzpicture}  	
+\end{tabular}
+\end{center}
+\end{figure}
+
+% -----------------------------------------------------------------------
+% Figure 4 of the paper 
+% -----------------------------------------------------------------------
+
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+scale only axis=true,
+width=0.64\textwidth,
+height=0.36\textwidth,
+xlabel={$\mathcal{I}_\mathcal{W}(\tilde{\mu})$},
+ylabel={Parameter},
+xmin=0, xmax=1,
+ymin = 0, ymax = 5,
+legend style={nodes={scale=0.8, transform shape}}, legend pos=north west]
+\addplot[color=blue, line width = 1pt] table [x=y2, y=x]{data_compound.txt};
+\addlegendentry{Compound}
+
+\addplot[color=red, line width = 1pt] table [x=y3, y=x]{data_additive.txt};
+\addlegendentry{Additive\phantom{icc}}
+
+\addplot [domain=0:1, samples=3, color=gray, dashed]{0.75};
+\addplot [domain=0:1, samples=3, color=gray, dashed]{3};
+\addplot [domain=0:5, samples=3, color=gray, dashed](0.8,x);
+
+\end{axis}
+\end{tikzpicture}   
+\end{center}
+\end{figure}
+
+\end{document}
