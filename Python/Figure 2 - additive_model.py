@@ -28,20 +28,16 @@ nameFile = "data_additive.txt"
 print("Module importation...")
 
 
+from time import time
 
 from math import *
 
 
 
 import scipy.integrate as integrate
-
 import scipy.special as special
-
 import numpy as np
 
-
-
-import matplotlib.pyplot as plt
 
 
 
@@ -120,6 +116,9 @@ def integrand(s,z,d):
 # ----------------------------------------------------------------------------
 
 
+
+start = time()
+
 # Value of the second moment of bar nu.
 secondMoment = 1.
 
@@ -151,9 +150,9 @@ for j in range(nD):
         z = zArray[i]
 
         d = dArray[j]
-
-        compute = integrate.quad(integrand, 0., 500., args=(z,d))
-
+        
+        compute = integrate.quad(integrand, 0., 500., args=(z,d), epsabs=1.e-07) 
+        
         integralArray[i,j] = compute[0]
 
 
@@ -163,7 +162,9 @@ for j in range(nD):
         indexArray[i,j] = 1. - (d*secondMoment - integralArray[i,j])/(d*secondMoment - integralArray[0,j])
 
 
+end = time()
 
+print("Elapsed time: "+str(round(end - start,2))+"s." )
 
 
 # ----------------------------------------------------------------------------

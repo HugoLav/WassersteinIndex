@@ -14,12 +14,6 @@ Compute the index for the compound model. Running the code produces the txt file
 
 
 
-# Name of the file to store the results
-
-nameFile = "data_compound.txt"
-
-
-
 # ----------------------------------------------------------------------------
 
 # Imports
@@ -41,14 +35,17 @@ from math import *
 
 
 import scipy.integrate as integrate
-
 import scipy.special as special
-
 import numpy as np
 
 
 
-import matplotlib.pyplot as plt
+
+# Name of the file to store the results
+
+nameFile = "data_compound.txt"
+
+
 
 
 
@@ -201,6 +198,7 @@ def integrandNumeratorRBis(s,d,phi):
 
 
 
+start = time()
 
 # Compute for all values of z and d
 
@@ -220,7 +218,6 @@ indexArray = np.zeros((nPhi,nD))
 
 
 
-start = time()
 
 for j in range(nD):
 

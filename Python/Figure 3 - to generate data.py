@@ -14,15 +14,13 @@ Compute the index for the situation described in Section 5.3. Running the code p
 
 # ----------------------------------------------------------------------------
 
+from time import time
+
 from math import *
 
 import scipy.integrate as integrate
 import scipy.special as special
 import numpy as np
-
-import matplotlib.pyplot as plt
-import matplotlib.pylab as pl
-from matplotlib import rc
 
 
 # ----------------------------------------------------------------------------
@@ -88,6 +86,10 @@ def upperbound(s, m):
 # keep number of independent components fixed and let number of comonotone repetitions group
 
 # ----------------------------------------------------------------------------
+
+
+
+start = time()
 
 nameFileMfix = "mix_mfix.txt" 
 
@@ -214,3 +216,6 @@ for i in range(nInd):
 
 
 fileObject.close() 
+
+end = time()
+print("Elapsed time: "+str(round(end - start,2))+"s." )
